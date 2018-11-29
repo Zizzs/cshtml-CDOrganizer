@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+    <h3>Here are all the CDs from this Artist:</h3>
+    <ol>
+        @foreach (var cd in @Model["cds"])
+        {
+            <li><a href='/artists/@Model["artist"].GetId()/cds/@cd.GetId()'>@cd.GetDescription()</a></li>
+        }
+    </ol>
+
+    <p><a href='/artists/@Model["artist"].GetId()/cds/new'>Add a new CD.</a></p>
+    <p><a href='/artists'>Return to the Artist list</a></p>
+    <p><a href='/'>Return to the Main Page</a></p>
+</div>

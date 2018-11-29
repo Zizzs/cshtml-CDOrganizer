@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+    <h1>Add an Artist</h1>
+    <p>Add a new Artist Here:</p>
+
+    <form action="/artists" method="post">
+    <label for="artistName">Artist Name</label>
+    <input id="artistName" name="artistName" type="text">
+    <button type="submit">Add</button>
+    </form>
+
+    <p><a href="/">Back home</a></p>
+    <p><a href="/artists">Back to Artists.</a></p>
+</div>

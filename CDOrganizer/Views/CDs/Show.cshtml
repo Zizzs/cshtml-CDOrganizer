@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="container">
+    <h1>CD Details</h1>
+    <h2>@Model["cd"].GetDescription()</h2>
+    <h3>Artist: @Model["artist"].GetName()</h3>
+
+    <a href='/artists/@Model["artist"].GetId()/cds/new'>Add another CD.</a>
+    <a href='/artists'>View all Artists</a>
+</div>
