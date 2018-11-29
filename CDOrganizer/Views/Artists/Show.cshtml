@@ -3,7 +3,7 @@
 }
 
 <div class="container">
-    <h3>Here are all the CDs from this Artist:</h3>
+    <h3>Here are all the CDs from @Model["artist"].GetName():</h3>
     <ol>
         @foreach (var cd in @Model["cds"])
         {

@@ -63,7 +63,7 @@ namespace CDOrganizer.Controllers
       {
             Artist foundArtist = Artist.FindByName(artistName);
             
-            if (foundArtist.GetName() != "Broken")
+            if (foundArtist.GetName() == artistName)
             {
                 Dictionary<string, object> model = new Dictionary<string, object>();
                 List<CD> artistCDs = foundArtist.GetCDs();
@@ -71,12 +71,9 @@ namespace CDOrganizer.Controllers
                 model.Add("artist", foundArtist);
                 return View("Show", model);
             }
-            else if (foundArtist.GetName() == "Broken")
+            else
             {
-                //int foundId = foundArtist.GetId();
-                Artist foundList = Artist.GetAll();
-                foundList.Remove(foundArtist);
-                Artist.SetAll(foundList);
+                Artist.RemoveError(artistName);
                 return RedirectToAction("Error");
             }
       }

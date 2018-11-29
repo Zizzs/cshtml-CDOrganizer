@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace CDOrganizer.Models
 {
@@ -49,7 +50,7 @@ namespace CDOrganizer.Models
         
         public static Artist FindByName(string artistName)
         {
-            string temp = "Broken";
+            string temp = "";
             Artist artistTemp = new Artist(temp);
             foreach(Artist artist in _instances)
             {
@@ -71,6 +72,20 @@ namespace CDOrganizer.Models
         public void AddCD(CD cd)
         {
             _cds.Add(cd);
+        }
+
+        public static void RemoveError(string tempName)
+        {
+            foreach (Artist artist in _instances)
+            {
+                if (artist.GetName() == tempName)
+                {
+                    int tempId = artist.GetId();
+                    Console.WriteLine(_instances.Count);
+                    _instances.RemoveAt(tempId - 1);
+                    Console.WriteLine(_instances.Count);
+                }
+            }
         }
 
 
